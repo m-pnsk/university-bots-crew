@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changes/create-lector-table.sql
+  - include:
+      file: db/changelog/changes/create-department-table.sql
+  - include:
+      file: db/changelog/changes/create-department_lector-table.sql
