@@ -65,7 +65,7 @@ class DepartmentServiceImplTest {
 
     @Test
     void getByName_ok() {
-        when(departmentRepository.findByName(any(String.class))).thenReturn(Optional.of(department));
+        when(departmentRepository.findDepartmentByName(any(String.class))).thenReturn(Optional.of(department));
 
         Department actual = departmentService.getByName(DEPARTMENT_NAME);
         Department expected = department;
@@ -75,7 +75,7 @@ class DepartmentServiceImplTest {
 
     @Test
     void getByName_notOk() {
-        when(departmentRepository.findByName(any(String.class))).thenReturn(Optional.empty());
+        when(departmentRepository.findDepartmentByName(any(String.class))).thenReturn(Optional.empty());
 
         assertThrows(NoSuchElementException.class, () -> departmentService.getByName(DEPARTMENT_NAME));
     }

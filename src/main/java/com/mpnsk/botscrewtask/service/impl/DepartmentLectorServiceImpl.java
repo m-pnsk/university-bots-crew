@@ -20,6 +20,6 @@ public class DepartmentLectorServiceImpl implements DepartmentLectorService {
 
     @Override
     public List<DepartmentLector> getDepartmentLectors(Department department) {
-        return departmentLectorRepository.getDepartmentLectors(department);
+        return departmentLectorRepository.findAllByDepartment(department);
     }
 }

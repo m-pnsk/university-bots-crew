@@ -10,7 +10,6 @@ public class BotsCrewTaskApplication {
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(BotsCrewTaskApplication.class, args);
         UniversityApp app = context.getBean(UniversityApp.class);
-
         app.run();
     }
 }

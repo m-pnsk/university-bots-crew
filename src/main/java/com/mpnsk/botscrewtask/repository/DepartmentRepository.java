@@ -12,8 +12,7 @@ import java.util.Optional;
 
 @Repository
 public interface DepartmentRepository extends CrudRepository<Department, Long> {
-    @Query("SELECT d FROM Department d WHERE d.name = :departmentName")
-    Optional<Department> findByName(@Param("departmentName") String departmentName);
+    Optional<Department> findDepartmentByName(String departmentName);
 
     @Query("SELECT d.headOfDepartment FROM Department d WHERE d = :department")
     Lector getHeadOfDepartment(@Param("department") Department department);

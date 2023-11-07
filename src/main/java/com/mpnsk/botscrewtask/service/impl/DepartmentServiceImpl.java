@@ -35,7 +35,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 
     @Override
     public Department getByName(String departmentName) {
-        return departmentRepository.findByName(departmentName.toUpperCase()).orElseThrow(
+        return departmentRepository.findDepartmentByName(departmentName.toUpperCase()).orElseThrow(
                 () -> new NoSuchElementException("Not found department with name: " + departmentName));
     }
 
@@ -56,7 +56,7 @@ public class DepartmentServiceImpl implements DepartmentService {
         for (BigDecimal salary : departmentSalary) {
             total = total.add(salary);
         }
-        return total.divide(BigDecimal.valueOf(departmentSalary.size()))
+        return total.divide(BigDecimal.valueOf(departmentSalary.size()), RoundingMode.HALF_UP)
                 .setScale(2,  RoundingMode.HALF_UP);
     }
 
